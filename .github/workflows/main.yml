@@ -24,7 +24,9 @@ jobs:
         uses: krdlab/setup-haxe@v2
         with:
           haxe-version: ${{ matrix.haxe }}
-          
+
+      - run: haxelib --global update haxelib
+      
       - name: Print version numbers
         run: |
           haxe -version
