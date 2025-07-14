@@ -1,0 +1,21 @@
+name: CI
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+    
+      - uses: actions/checkout@v4
+      
+      - uses: krdlab/setup-haxe@v2
+        with:
+          haxe-version: 4.2.5
+          
+      - name: Install dox
+        run: |
+          haxe --version
+          haxelib help
+          haxelib info dox --debug
+          haxelib install dox --debug
+          haxelib run dox --help
