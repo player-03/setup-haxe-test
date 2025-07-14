@@ -24,7 +24,7 @@ jobs:
           
       - name: Install dox
         run: |
-          haxe --version
+          haxe -version
           haxelib help
           haxelib info dox --debug
           haxelib install dox --debug
