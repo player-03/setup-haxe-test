@@ -26,8 +26,9 @@ jobs:
           haxe-version: ${{ matrix.haxe }}
 
       - run: |
-          haxelib install haxelib
-          haxelib update haxelib
+          haxelib install haxelib --debug
+          haxelib update haxelib --debug
+          haxelib fixrepo --debug
       
       - name: Print version numbers
         run: |
