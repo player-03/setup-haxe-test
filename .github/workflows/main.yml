@@ -1,12 +1,15 @@
 name: CI
-on: [push, workflow_dispatch]
+on: [push, pull_request]
 
 jobs:
   test:
+  
     runs-on: ubuntu-latest
     
     strategy:
+      
       fail-fast: false
+      
       matrix:
         haxe:
         - latest
@@ -22,10 +25,13 @@ jobs:
         with:
           haxe-version: ${{ matrix.haxe }}
           
-      - name: Install dox
+      - name: Print version numbers
         run: |
           haxe -version
           haxelib help
+
+      - name: Install dox
+        run: |
           haxelib info dox --debug
           haxelib install dox --debug
           haxelib run dox --help
