@@ -4,13 +4,22 @@ on: [push, workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        haxe:
+        - latest
+        - 4.2.5
+        - 3.4.7
+        
     steps:
     
       - uses: actions/checkout@v4
       
-      - uses: krdlab/setup-haxe@v2
+      - name: Install haxe ${{ matrix.haxe }}
+        uses: krdlab/setup-haxe@v2
         with:
-          haxe-version: 4.2.5
+          haxe-version: ${{ matrix.haxe }}
           
       - name: Install dox
         run: |
