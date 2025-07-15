@@ -13,6 +13,7 @@ jobs:
       matrix:
         haxe:
         - latest
+        - 4.3.7
         - 4.2.5
         - 3.4.7
         
