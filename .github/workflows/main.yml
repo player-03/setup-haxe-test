@@ -36,6 +36,7 @@ jobs:
           repository: HaxeFoundation/haxelib
           ref: 4.0.2
           path: haxelib
+          submodules: recursive
 
       - name: Build haxelib
         run: |
