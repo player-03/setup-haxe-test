@@ -13,6 +13,7 @@ jobs:
       matrix:
         haxe:
         - latest
+        - 4.3.7
         - 4.2.5
         - 3.4.7
         
@@ -21,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Install haxe ${{ matrix.haxe }}
-        uses: krdlab/setup-haxe@v2
+        uses: tobil4sk/setup-haxe@neko-nightlies
         with:
           haxe-version: ${{ matrix.haxe }}
           
