@@ -34,7 +34,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: HaxeFoundation/haxelib
-          ref: 4.0.2
+          ref: 4.0.3
           path: haxelib
           submodules: recursive
 
@@ -43,7 +43,7 @@ jobs:
           cd haxelib
           haxe client.hxml
 
-      - name: Test haxelib 4.0.2
+      - name: Test haxelib 4.0.3
         run: |
           neko haxelib/run.n --system info dox --debug
 
