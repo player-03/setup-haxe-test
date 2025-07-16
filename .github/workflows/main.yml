@@ -13,8 +13,9 @@ jobs:
       matrix:
         haxe:
         - latest
+        - 4.3.7
         - 4.2.5
-        - 3.4.7
+        #- 3.4.7
         
     steps:
     
@@ -29,6 +30,21 @@ jobs:
         run: |
           haxe -version
           haxelib help
+
+      - uses: actions/checkout@v4
+        with:
+          repository: HaxeFoundation/haxelib
+          ref: 4.0.2
+          path: haxelib
+
+      - name: Build haxelib
+        run: |
+          cd haxelib
+          haxe client.hxml
+
+      - name: Test haxelib 4.0.2
+        run: |
+          neko haxelib/run.n --system info dox --debug
 
       - name: Install dox
         run: |
