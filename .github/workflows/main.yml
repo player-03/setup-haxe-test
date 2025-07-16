@@ -39,6 +39,11 @@ jobs:
           path: haxelib
           submodules: recursive
 
+      - name: Patch sys/Http.hx
+        run: |
+          mkdir haxelib/src/sys
+          mv sys/Http.hx haxelib/src/sys/Http.hx
+
       - name: Build haxelib
         run: |
           cd haxelib
